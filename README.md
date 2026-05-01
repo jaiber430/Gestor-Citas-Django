@@ -34,12 +34,8 @@ Sistema web para la gestión de citas médicas o de servicios, desarrollado con 
 ```
 Gestor-Citas-Django/
 │
-├── appointments/        # App principal de citas
-├── users/               # App de autenticación y usuarios
 ├── config/              # Configuración del proyecto Django
-├── docker/              # Archivos Docker y configuración
-│   ├── nginx/
-│   └── postgrest/
+├── users/               # App de autenticación y usuarios
 ├── docker-compose.yml   # Orquestación de servicios
 ├── Dockerfile           # Imagen de la aplicación
 ├── requirements.txt     # Dependencias Python
@@ -84,7 +80,7 @@ Edita el archivo `.env` con tus valores:
 ```env
 SECRET_KEY=tu_clave_secreta
 DEBUG=True
-DB_NAME=gestor_citas
+DB_NAME=nombre_db
 DB_USER=postgres
 DB_PASSWORD=tu_password
 DB_HOST=db
@@ -171,12 +167,6 @@ Las contribuciones son bienvenidas. Por favor abre un issue primero para discuti
 
 ---
 
-## 📄 Licencia
-
-Este proyecto está bajo la licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
-
----
-
 ## 👨‍💻 Autor
 
-**Jaiber** — [@jaiber430](https://github.com/jaiber430)
+**Jaiber** — [@jaiber430](https://github.com/jaiber430) - jaiberworks4302@gmail.com
