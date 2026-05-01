@@ -81,7 +81,7 @@ Edita el archivo `.env` con tus valores:
 SECRET_KEY=tu_clave_secreta
 DEBUG=True
 DB_NAME=nombre_db
-DB_USER=postgres
+DB_USER=nombre_usuario_postgrest
 DB_PASSWORD=tu_password
 DB_HOST=db
 DB_PORT=5432
