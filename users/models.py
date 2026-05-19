@@ -30,6 +30,7 @@ class User(AbstractUser):
 class Role(models.Model):
     role_name = models.CharField(
         max_length=15,
+        unique=True
     )
 
     class Meta:
@@ -76,3 +77,35 @@ class UserRole(models.Model):
 
     def __str__(self):
         return f'{self.user} - {self.role}'
+    
+class Schedule(models.Model):
+
+    # Values of the day
+    DAY_CHOICES=[
+        (0, "Lunes"),
+        (1, "Martes"),
+        (2, "Miércoles"),
+        (3, "Jueves"),
+        (4, "Viernes"),
+        (5, "Sábado"),
+        (6, "Domingo"),
+    ]
+
+    post=models.ForeignKey(
+        Post,
+        on_delete=models.CASCADE,
+        related_name='post_schedule'
+    )
+
+    day_of_week = models.IntegerField(choices=DAY_CHOICES)
+    start_time = models.TimeField()
+    end_time = models.TimeField()
+
+    class Meta:
+        db_table = 'schedule'
+        unique_together = ('post', 'day_of_week')
+
+    # get_day_of_week_display = Convert number to readable text
+    def __str__(self):
+        # Return post - day - hour - hour
+        return f'{self.post} - {self.get_day_of_week_display()} - {self.start_time} - {self.end_time}'
