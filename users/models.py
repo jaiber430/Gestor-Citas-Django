@@ -77,7 +77,7 @@ class UserRole(models.Model):
 
     def __str__(self):
         return f'{self.user} - {self.role}'
-    
+
 class Schedule(models.Model):
 
     # Values of the day
@@ -109,3 +109,21 @@ class Schedule(models.Model):
     def __str__(self):
         # Return post - day - hour - hour
         return f'{self.post} - {self.get_day_of_week_display()} - {self.start_time} - {self.end_time}'
+
+class DoctorSpecialty(models.Model):
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name='doctor_specialty_user'
+    )
+    post = models.ForeignKey(
+        Post,
+        on_delete=models.CASCADE,
+        related_name='doctor_specialty_post'
+    )
+    class Meta:
+        db_table = "doctorspecialty"
+        unique_together = ('user', 'post')
+
+    def __str__(self):
+        return f"{self.user} - {self.post}"
