@@ -122,7 +122,7 @@ class DoctorSpecialty(models.Model):
         related_name='doctor_specialty_post'
     )
     class Meta:
-        db_table = "doctorspecialty"
+        db_table = "doctor_specialty"
         unique_together = ('user', 'post')
 
     def __str__(self):
