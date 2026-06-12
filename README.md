@@ -33,7 +33,7 @@ Sistema web para la gestión de citas médicas o de servicios, desarrollado con 
 
 ```
 Gestor-Citas-Django/
-│
+├── appointments         # App de citas
 ├── config/              # Configuración del proyecto Django
 ├── users/               # App de autenticación y usuarios
 ├── docker-compose.yml   # Orquestación de servicios
