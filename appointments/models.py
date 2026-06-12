@@ -43,3 +43,30 @@ class Quote(models.Model):
 
     def __str__(self):
         return f'{self.patient} - {self.doctor} - {self.appointment_date}'
+
+class Diagnosis(models.Model):
+
+    # OneToOneField => Just having a diagnosis
+    quote = models.OneToOneField(
+        Quote,
+        on_delete=models.CASCADE,
+        related_name='diagnosis_quote'
+    )
+
+    doctor = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name='diagnosis_doctor'
+    )
+
+    summary = models.TextField(blank=True, null=True)
+
+    #  auto_now_add => current date automatically
+    date_of_diagnosis = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        # Table name
+        db_table = 'diagnosis'
+
+    def __str__(self):
+        return f'{self.quote} - {self.doctor} - {self.date_of_diagnosis}'
