@@ -1,3 +1,4 @@
 django>=4.2
 psycopg2-binary
 gunicorn
+djangorestframework
