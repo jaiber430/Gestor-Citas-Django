@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from user.models import User, Role, Post, UserRole, Schedule, DoctorSpecialty
+from users.models import User, Role, Post, UserRole, Schedule, DoctorSpecialty
 
 class UserSerializer(serializers.ModelSerializer):
     # write_only => receive data but never return it
